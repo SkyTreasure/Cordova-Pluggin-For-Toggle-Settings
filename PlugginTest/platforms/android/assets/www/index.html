@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+ 
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <title>Hello World</title>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script>
+    </head>
+    <body>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            
+                 var success = function(message) { 
+                    if(message=="wifi"){
+                        $("#WiFiToggle").html("WiFi Enabled");
+                    }
+                    if(message=="dp"){
+                        $("#DataPackToggle").html("Datapack Connected");
+                    }
+                    if(message=="silentmode"){
+                        $("#SilentModeToggle").html("Silent Mode Activated");
+                    }
+                    if(message=="brightness"){
+                        $("#BrightnessToggle").html("Night Mode Activated");
+                    }
+                    if(message=="airplane"){
+                        $("#AirplaneModeToggle").html("Airplane Mode Activated");
+                    }
+                    if(message=="bluetooth"){
+                        $("#BluetoothToggle").html("Bluetooth is Enabled");
+                    }
+                    if(message=="screenrotation"){
+                        $("#ScreenRotationToggle").html("Rotation is Enabled");
+                    }
+
+                  };
+                 var error = function(message) { 
+                    if(message=="wifi"){
+                        $("#WiFiToggle").html("Wifi Disabled");
+                    }
+                    if(message=="dp"){
+                        $("#DataPackToggle").html("Datapack Disconnected");
+                    }
+                    if(message=="silentmode"){
+                        $("#SilentModeToggle").html("Silent Mode DeActivated");
+                    }
+                    if(message=="brightness"){
+                        $("#BrightnessToggle").html("Day Mode Activated");
+                    }
+                    if(message=="airplane"){
+                        $("#AirplaneModeToggle").html("Airplane Mode DeActivated");
+                    }
+                    if(message=="bluetooth"){
+                        $("#BluetoothToggle").html("Bluetooth is Disabled");
+                    }
+                    if(message=="screenrotation"){
+                        $("#ScreenRotationToggle").html("Rotation is Disabled");
+                    }
+
+                    
+                };
+
+
+                $("#WiFiToggle").click(function () {
+                     TogglePlugin.WiFiToggle(success,error);
+                });
+                $("#DataPackToggle").click(function () {
+                     TogglePlugin.DataPackToggle(success,error);
+                });
+                $("#SilentModeToggle").click(function () {
+                     TogglePlugin.SilentModeToggle(success,error);
+                });
+                $("#BrightnessToggle").click(function () {
+                     TogglePlugin.BrightnessToggle(success,error);
+                });
+                $("#AirplaneModeToggle").click(function () {
+                     TogglePlugin.AirplaneModeToggle(success,error);
+                });
+                $("#BluetoothToggle").click(function () {
+                     TogglePlugin.BluetoothToggle(success,error);
+                });
+                 $("#ScreenRotationToggle").click(function () {
+                     TogglePlugin.ScreenRotationToggle(success,error);
+                });
+                
+        });
+    </script>
+        <div class="app">
+            <h1>Apache Cordova</h1>
+            <div id="deviceready" class="blink">
+                <p class="event listening">Connecting to Device</p>
+                <p class="event received">Device is Ready</p>
+                <button id="WiFiToggle">Toggle Wifi</button>
+                <button id="DataPackToggle">Toggle DataPack</button>
+                <button id="SilentModeToggle">Silent Mode</button>
+                <button id="BrightnessToggle">Brightness Toggle</button>
+                <button id="AirplaneModeToggle">Airplane Mode Toggle</button>
+                <button id="BluetoothToggle">Bluetooth Toggle</button>
+                <button id="ScreenRotationToggle">Screen Rotation</button>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/pluggin.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>
